@@ -82,11 +82,3 @@ a{
    filter: brightness(0.9);
 }
 
-.separator{
-    background-color: #f7f0fa;
-    border-top: 1px solid #ebeef0;
-    border-bottom: 1px solid #ebeef0;
-    height: 0.75rem;
-}
-
-
