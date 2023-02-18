@@ -4,8 +4,10 @@ import { GoMail } from "react-icons/go";
 import { TfiBookmark } from "react-icons/tfi";
 import { AiOutlineUser } from "react-icons/ai";
 import { CiCircleMore } from "react-icons/ci";
+import { TiPencil } from "react-icons/ti";
 
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+
 
 import "./Sidebar.css";
 
@@ -16,37 +18,40 @@ export function Sidebar() {
         <aside className='sidebar'>
             <img className='logo' src={twitterLogo} alt="logo" />
             <nav className='main-navigation'>
-                <Link className='active' to="/">
+                <NavLink to="/">
                     <BsHouseDoorFill />
-                    Home
-                </Link>
+                    <span>Home</span>
+                </NavLink>
                 <a href="link">
                     <BsHash />
-                    Explore
+                    <span>Explore</span>
                 </a>
                 <a href="">
                     <IoMdNotificationsOutline />
-                    Notification
+                    <span>Notification</span>
                 </a>
                 <a href="">
                     <GoMail />
-                    Messages
+                    <span>Messages</span>
                 </a>
                 <a href="">
                     <TfiBookmark />
-                    Bookmarks
+                    <span>Bookmarks</span>
                 </a>
                 <a href="">
                     <AiOutlineUser />
-                    Profile
+                    <span>Profile</span>
                 </a>
                 <a href="">
                     <CiCircleMore />
-                    More
+                    <span>More</span>
                 </a>
             </nav>
 
-            <button className='new-tweet' type='button'>Tweet</button>
+            <button className='new-tweet' type='button'>
+                <TiPencil/>
+                <span>Tweet</span>
+            </button>
         </aside>
     )
 }

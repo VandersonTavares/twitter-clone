@@ -2,15 +2,39 @@ import { Header } from "../components/Header"
 import { Separator } from "../components/Separator"
 import { Tweet } from "../components/Tweet"
 
+import { FormEvent, KeyboardEvent, useState } from "react";
+
+import { RxPaperPlane } from "react-icons/rx";
+
+
 import './Status.css';
 
-const answers = [
-    'Concordo',
-    'Faz sentido',
-    'Parabens pelo progresso.'
-]
 
 export function Status() {
+
+    const [newAnswer, setNewAnswer] = useState('');
+
+    const [answers, setAnswers] = useState([
+        'Concordo',
+        'Faz sentido',
+        'Parabens pelo progresso.'
+    ]);
+
+    function createNewAnswer(event: FormEvent) {
+        event.preventDefault();
+
+        setAnswers([newAnswer, ...answers]);
+        setNewAnswer('');
+
+    }
+
+    function handleHotkeySubmit(event: KeyboardEvent) {
+        if (event.key === 'Enter' && (event.ctrlKey || event.metaKey)) {
+            setAnswers([newAnswer, ...answers]);
+            setNewAnswer('');
+        }
+    }
+
     return (
         <main className="status">
             <Header title="Tweet" />
@@ -19,12 +43,12 @@ export function Status() {
 
             <Separator />
 
-            <form className='answer-tweet-form'>
+            <form onSubmit={createNewAnswer} className='answer-tweet-form'>
                 <label htmlFor="tweet">
                     <img src="https://github.com/vandersontavares.png" alt="user-pic" />
-                    <textarea id="tweet" placeholder="Tweet your answer"></textarea>
+                    <textarea id="tweet" placeholder="Tweet your answer" value={newAnswer} onKeyDown={handleHotkeySubmit} onChange={(e) => { setNewAnswer(e.target.value) }}></textarea>
                 </label>
-                <button type="submit">Answer</button>
+                <button type="submit"><RxPaperPlane/><span>Answer</span></button>
             </form>
 
 
