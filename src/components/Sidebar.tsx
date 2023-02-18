@@ -5,6 +5,8 @@ import { TfiBookmark } from "react-icons/tfi";
 import { AiOutlineUser } from "react-icons/ai";
 import { CiCircleMore } from "react-icons/ci";
 
+import { Link } from "react-router-dom";
+
 import "./Sidebar.css";
 
 import twitterLogo from '../assets/logo-twitter.svg';
@@ -14,10 +16,10 @@ export function Sidebar() {
         <aside className='sidebar'>
             <img className='logo' src={twitterLogo} alt="logo" />
             <nav className='main-navigation'>
-                <a className='active' href="link">
+                <Link className='active' to="/">
                     <BsHouseDoorFill />
                     Home
-                </a>
+                </Link>
                 <a href="link">
                     <BsHash />
                     Explore

@@ -1,12 +1,17 @@
-import './Tweet.css';
-
 import { BsChat, BsHeart } from "react-icons/bs";
 import { FiRefreshCw } from "react-icons/fi";
 
+import { Link } from "react-router-dom";
 
-export function Tweet() {
+import './Tweet.css';
+
+interface TweetProps{
+    content: string;
+}
+
+export function Tweet({ content }: TweetProps) {
     return (
-        <a href="#" className='tweet'>
+        <Link to="/status" className='tweet'>
             <img src="https://github.com/vandersontavares.png" alt="use-pic" />
 
             <div className="tweet-content">
@@ -15,10 +20,7 @@ export function Tweet() {
                     <span>@zerobyrox</span>
                 </div>
                 <p>
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Esse quasi sint expedita, ex provident, sequi aliquid iusto necessitatibus,
-                    fuga maiores blanditiis odit perferendis voluptatum explicabo tenetur possimus corrupti.
-                    Libero, sint?
+                   {content}
                 </p>
                 <div className="tweet-content-footer">
 
@@ -36,6 +38,6 @@ export function Tweet() {
 
                 </div>
             </div>
-        </a>
+        </Link>
     )
 }
