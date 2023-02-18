@@ -6,7 +6,7 @@ import { AiOutlineUser } from "react-icons/ai";
 import { CiCircleMore } from "react-icons/ci";
 import { TiPencil } from "react-icons/ti";
 
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 
 import "./Sidebar.css";
@@ -22,7 +22,7 @@ export function Sidebar() {
                     <BsHouseDoorFill />
                     <span>Home</span>
                 </NavLink>
-                <a href="link">
+                <a href="">
                     <BsHash />
                     <span>Explore</span>
                 </a>
